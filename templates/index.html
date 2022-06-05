@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+    <title>ML API</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+	<!--header part-->
+
+<!--form section-->
+<div class="container text-center col-sm-5 col-sm-pull-7 col-10 col-pull-1 mt-3 form_main border rounded">
+    
+    <form class="form-signin col-sm-12 col-12" action="{{ url_for('predict')}}" method="post">
+        <h1 class="h3 mb-4 font-weight-bold mt-4">Algerian Forst Fire Detection Model</h1>
+        
+        <input type="text" name="Month" id="Month" class="form-control mb-3" placeholder="Month" required="" autofocus="">
+        <input type="text" name="Temperature" id="Temperature" class="form-control mb-3" placeholder="Temperature" required="" autofocus="">
+        <input type="text" name="Relative Humidity (RH)" id="Relative Humidity (RH)" class="form-control mb-3" placeholder="Relative Humidity (RH)" required="" autofocus="">
+        <input type="text" name="Wind speed (Ws)" id="Wind speed (Ws)" class="form-control mb-3" placeholder="Wind speed (Ws)" required="" autofocus="">
+        <input type="text" name="Rain" id="Rain" class="form-control mb-3" placeholder="Rain" required="" autofocus="">
+        <input type="text" name="Fine Fuel Moisture Code (FFMC)" id="Fine Fuel Moisture Code (FFMC)" class="form-control mb-3" placeholder="Fine Fuel Moisture Code (FFMC)" required="" autofocus="">
+        <input type="text" name="Duff Moisture Code (DMC)" id="Duff Moisture Code (DMC)" class="form-control mb-3" placeholder="Duff Moisture Code (DMC)" required="" autofocus="">
+        <input type="text" name="Drought Code (DC)" id="Drought Code (DC)" class="form-control mb-3" placeholder="Drought Code (DC)" required="" autofocus="">
+        <input type="text" name="Initial Spread Index (ISI)" id="Initial Spread Index (ISI)" class="form-control mb-3" placeholder="Initial Spread Index (ISI)" required="" autofocus="">
+        <input type="text" name="Buildup Index (BUI)" id="Buildup Index (BUI)" class="form-control mb-3" placeholder="Buildup Index (BUI)" required="" autofocus="">
+        <input type="text" name="Fire Weather Index (FWI)" id="Fire Weather Index (FWI)" class="form-control mb-3" placeholder="Fire Weather Index (FWI)" required="" autofocus="">
+
+        <button class="btn btn-lg btn-primary btn-block mb-4" type="submit">Predict</button>
+    </form>
+
+</div>
+<br><br>
+<div class="container text-center font-weight-bold blockquote display-3">
+    {{prediction_text}}
+</div>
+    
+</body>
+</html>
